@@ -19,7 +19,7 @@ dependencies = [
     "scipy",
     "matplotlib",
     "ansitable",
-    "swift-sim[nb,vision]@git+https://github.com/irisTa56/swift.git",
+    "swift-sim[nb,vision]@git+https://github.com/irisTa56/swift.git@colab-output",
     "rtb-data",
     "progress",
     "typing_extensions",
