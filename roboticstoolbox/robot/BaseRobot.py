@@ -2334,10 +2334,16 @@ class BaseRobot(SceneNode, DynamicsMixin, ABC, Generic[LinkType]):
         self.q = q[0, :]
 
         # Add the self to the figure in readonly mode
+        swift_kwargs = {k: kwargs.pop(k) for k in ["browser", "comms"] if k in kwargs}
         if q.shape[0] == 1:
-            env.launch(name=self.name + " Plot", limits=limits, fig=fig)
+            env.launch(name=self.name + " Plot", limits=limits, fig=fig, **swift_kwargs)
         else:
-            env.launch(name=self.name + " Trajectory Plot", limits=limits, fig=fig)
+            env.launch(
+                name=self.name + " Trajectory Plot",
+                limits=limits,
+                fig=fig,
+                **swift_kwargs,
+            )
 
         env.add(self, readonly=True, **kwargs)
 
